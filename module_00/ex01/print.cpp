@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contacts.class.hpp                                 :+:      :+:    :+:   */
+/*   print.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 17:36:54 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/05 16:59:35 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/05 16:38:13 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/05 18:01:51 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACTS_CLASS_HPP
-# define CONTACTS_CLASS_HPP
+#include "phonebook.hpp"
 
-#include <string>
 
-class Contacts
+void	print_line()
 {
-	public:
 
-		Contacts(void);
-		~Contacts(void);
+}
 
-		std::string first_name;
-		std::string last_name;
-		std::string nickname;
-		std::string phone_number;
-		std::string darkest_secret;
+void	print_footer()
+{
 
-		void		get_details(void);
-		static int	get_nbInst(void);
-		static void	inc_nbInst(void);
+}
+
+void	print_header()
+{
+	std::cout << std::setfill ('-') << std::setw (45) << '\n';
+
+}
+
+void	print_book(Contacts *phonebook, int nb)
+{
+	nb = Contacts::get_nbInst();
+	(void)phonebook;
 	
-	private:
 
-		static int	_nbInst;
-};
-
-#endif
+}
