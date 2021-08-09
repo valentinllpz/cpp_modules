@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contacts.class.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valentinll <valentinll@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:37:12 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/05 15:38:32 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/09 15:03:48 by valentinll       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	Contacts::get_details(void)
 	std::getline(std::cin, this->first_name);
 	std::cout << "Darkest secret: ";
 	std::getline(std::cin, this->darkest_secret);
+	std::cout << "\nNew contacted added succesfully!\n";
 }
 
 int		Contacts::_nbInst = 0;

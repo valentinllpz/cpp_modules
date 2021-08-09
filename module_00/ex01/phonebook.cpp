@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valentinll <valentinll@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:29:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/05 17:21:00 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/09 15:04:05 by valentinll       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	add_contact(Contacts *phonebook) // ou mettre [8]
 
 void	search_contact(Contacts *phonebook)
 {
-	int		i;
+	int			i;
 	std::string	input;
 
 	i = Contacts::get_nbInst();
@@ -56,7 +56,7 @@ int		main(void)
 			search_contact(phonebook);
 		else
 			std::cout << "Unvalid command. Please use ADD, SEARCH or EXIT.\n";
-		std::cout << "What would you like to do ? ";
+		std::cout << "\nWhat would you like to do next? ";
 	}
 	return (0);
 }
