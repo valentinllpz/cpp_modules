@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 15:53:17 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/05 16:55:25 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/10 22:55:38 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 #include <string>
 
 void	print_book(Contacts *phonebook, int nb);
+void	print_contact(Contacts *phonebook, int i);
+void	control_input(std::string *dst);
 
 #endif

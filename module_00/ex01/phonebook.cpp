@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valentinll <valentinll@student.42.fr>      +#+  +:+       +#+        */
+/*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:29:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/09 15:04:05 by valentinll       ###   ########.fr       */
+/*   Updated: 2021/08/10 23:24:42 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-void	add_contact(Contacts *phonebook) // ou mettre [8]
+void	control_input(std::string *dst)
+{
+	while (std::getline(std::cin, *dst))
+	{
+		if ((*dst).empty())
+			std::cout << "Nothing entered, try again: ";
+		else
+			break ;
+	}
+}
+
+void	add_contact(Contacts *phonebook)
 {
 	int		i;
 
@@ -23,7 +34,7 @@ void	add_contact(Contacts *phonebook) // ou mettre [8]
 		Contacts::inc_nbInst();
 	}
 	else
-		std::cout << "Your contact list is full.";
+		std::cout << "Your contact list is full.\n";
 	return ;
 }
 
@@ -39,6 +50,19 @@ void	search_contact(Contacts *phonebook)
 		return ;
 	}
 	print_book(phonebook, i);
+	std::cout << "What is the index of the contact you are looking for? ";
+	i = 0;
+	std::cin >> i;
+	while (std::cin.fail() || (i < 0 || i > 7))
+	{
+        std::cout << "Input should be an integer between 0 and 7. Try again: ";
+        std::cin.clear();
+		std::cin.ignore();
+        std::cin >> i;
+	}
+	std::cin.clear();
+	std::cin.ignore();
+	print_contact(phonebook, i);
 }
 
 int		main(void)
