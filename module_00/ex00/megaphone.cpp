@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 15:08:58 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/07/15 15:37:11 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/11 16:26:37 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 
 	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	i = 1;
+	i = 1;	
 	while (av[i])
 	{
 		megaphone(av[i]);

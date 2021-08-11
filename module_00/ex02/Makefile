@@ -6,16 +6,14 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/08/11 16:16:57 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/08/11 20:55:33 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	AwesomePhoneBook
+NAME 		=	GlobalBanksters
 
-SRCS		=	main.cpp\
-				phonebook.cpp \
-				Contacts.cpp \
-				print.cpp
+SRCS		=	Account.cpp\
+				tests.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
@@ -27,7 +25,7 @@ all:		${NAME}
 
 ${NAME}:	 ${OBJS_PATH} ${OBJS}
 			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-			@echo "\033[0;32m\033[1mAwesomePhoneBook is ready !\033[0m"
+			@echo "\033[0;32m\033[1mGlobalBanksters is ready !\033[0m"
 
 ${OBJS_PATH}:
 			@mkdir -p $@

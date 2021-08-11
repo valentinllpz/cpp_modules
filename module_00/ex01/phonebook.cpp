@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:29:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/10 23:24:42 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/11 16:16:32 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,4 @@ void	search_contact(Contacts *phonebook)
 	std::cin.clear();
 	std::cin.ignore();
 	print_contact(phonebook, i);
-}
-
-int		main(void)
-{
-	std::string	input;
-	Contacts phonebook[8];
-		
-	std::cout << "Welcome to my Awesome Phone Book !\n";
-	std::cout << "What would you like to do ? ";
-	while (std::getline(std::cin, input) && input != "EXIT")
-	{
-		if (input == "ADD")
-			add_contact(phonebook);
-		else if (input == "SEARCH")
-			search_contact(phonebook);
-		else
-			std::cout << "Unvalid command. Please use ADD, SEARCH or EXIT.\n";
-		std::cout << "\nWhat would you like to do next? ";
-	}
-	return (0);
 }
