@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:07:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/11 21:42:27 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/12 00:14:13 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,22 @@ void	Account::_displayTimestamp(void)
 	std::time_t now = std::time(nullptr);
 	tm *ltm = localtime(&now);
 
-	if (1 + ltm->tm_mon > 9)
-   		std::cout << '[' << 1900 + ltm->tm_year << 1 + ltm->tm_mon << ltm->tm_mday << '_';
-	else
-		std::cout << '[' << 1900 + ltm->tm_year << 0 << 1 + ltm->tm_mon << ltm->tm_mday << '_';
-	std::cout << ltm->tm_hour << ltm->tm_min << ltm->tm_sec << "] ";
+	std::cout << '[' << 1900 + ltm->tm_year;
+	if (1 + ltm->tm_mon <= 9)
+   		std::cout << 0;
+	std::cout << 1 + ltm->tm_mon;
+	if (ltm->tm_mday <= 9)
+		std::cout << 0;
+	std::cout << ltm->tm_mday << '_';
+	if (ltm->tm_hour <= 9)
+		std::cout << 0;
+	std::cout << ltm->tm_hour;
+	if (ltm->tm_min <= 9)
+		std::cout << 0;
+	std::cout << ltm->tm_min;
+	if (ltm->tm_sec <= 9)
+		std::cout << 0;
+	std::cout << ltm->tm_sec << "] ";
 	return ;
 }
 
