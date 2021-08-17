@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contacts.class.hpp                                 :+:      :+:    :+:   */
+/*   phonebook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 17:36:54 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/10 18:33:08 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/17 12:39:42 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/17 16:37:07 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACTS_CLASS_HPP
-# define CONTACTS_CLASS_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+ 
+#include "awesomephonebook.hpp"
 
-#include <string>
-
-class Contacts
+class Phonebook
 {
 	public:
 
-		Contacts(void);
-		~Contacts(void);
+		Phonebook(void);
+		~Phonebook(void);
+		
+		void		add_contact();
+		void		search_contact() const;
+		void		print_book() const;
 
-		std::string first_name;
-		std::string last_name;
-		std::string nickname;
-		std::string phone_number;
-		std::string darkest_secret;
+		Contacts	*get_list();
+		int			get_contact_nb() const;
 
-		void		get_details(void);
-		static int	get_nbInst(void);
-		static void	inc_nbInst(void);
-	
 	private:
 
-		static int	_nbInst;
+		Contacts	list[8];
+		int			_contact_nb;
 };
 
 #endif

@@ -6,16 +6,16 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/08/11 16:16:57 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/08/17 17:08:26 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	AwesomePhoneBook
 
 SRCS		=	main.cpp\
-				phonebook.cpp \
-				Contacts.cpp \
-				print.cpp
+				phonebook.class.cpp \
+				contacts.class.cpp \
+				utils.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98

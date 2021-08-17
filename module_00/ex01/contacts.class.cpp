@@ -6,12 +6,12 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:37:12 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/10 22:15:04 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/17 17:04:20 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "phonebook.hpp"
+#include "awesomephonebook.hpp"
 
 Contacts::Contacts(void)
 {
@@ -23,30 +23,51 @@ Contacts::~Contacts(void)
 	return ;
 }
 
-void	Contacts::get_details(void)
+std::string	Contacts::get_first_name(void) const
+{
+	return (this->_first_name);
+}
+
+std::string	Contacts::get_last_name(void) const
+{
+	return (this->_last_name);
+}
+
+std::string	Contacts::get_nickname(void) const
+{
+	return (this->_nickname);
+}
+
+std::string	Contacts::get_phone_number(void) const
+{
+	return (this->_phone_number);
+}
+
+std::string	Contacts::get_darkest_secret(void) const
+{
+	return (this->_darkest_secret);
+}
+
+void	Contacts::ask_details(void)
 {
 	std::cout << "First name: ";
-	control_input(&(this->first_name));
+	control_input(&(this->_first_name));
 	std::cout << "Last name: ";
-	control_input(&(this->last_name));
+	control_input(&(this->_last_name));
 	std::cout << "Nickname: ";
-	control_input(&(this->nickname));
+	control_input(&(this->_nickname));
 	std::cout << "Phone number: ";
-	control_input(&(this->phone_number));
+	control_input(&(this->_phone_number));
 	std::cout << "Darkest secret: ";
-	control_input(&(this->darkest_secret));
+	control_input(&(this->_darkest_secret));
 	std::cout << "\nNew contacted added succesfully!\n";
 }
 
-int		Contacts::_nbInst = 0;
-
-int		Contacts::get_nbInst(void)
+void	Contacts::print_contact() const
 {
-	return (Contacts::_nbInst);
-}
-
-void	Contacts::inc_nbInst(void)
-{
-	Contacts::_nbInst++;
-	return ;
+	std::cout << "First name: " << this->_first_name << std::endl;
+	std::cout << "Last name: " << this->_last_name << std::endl;
+	std::cout << "Nickname: " << this->_nickname << std::endl;
+	std::cout << "Phone number: " << this->_phone_number << std::endl;
+	std::cout << "Darkest secret: " << this->_darkest_secret << std::endl;
 }
