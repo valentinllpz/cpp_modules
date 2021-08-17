@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   awesomephonebook.hpp                               :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 15:53:17 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/17 19:19:17 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/17 19:46:18 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/17 19:50:44 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWESOMEPHONEBOOK_HPP
-# define AWESOMEPHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <sstream>
-#include "Contacts.hpp"
-#include "Phonebook.hpp"
-
-void			control_input(std::string *dst);
-std::string		itoa_cpp(int nb);
-void			format_cell(std::string s);
-void			print_line(std::string s1, std::string s2, std::string s3, std::string s4);
-
-#endif
+Zombie*	newZombie(std::string name)
+{
+	return (new Zombie(name));
+}

@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   awesomephonebook.hpp                               :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 15:53:17 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/17 19:19:17 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/17 19:21:53 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/17 20:29:58 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWESOMEPHONEBOOK_HPP
-# define AWESOMEPHONEBOOK_HPP
+#ifndef 	ZOMBIE_HPP
+# define	ZOMBIE_HPP
 
 #include <iostream>
-#include <iomanip>
 #include <string>
-#include <sstream>
-#include "Contacts.hpp"
-#include "Phonebook.hpp"
 
-void			control_input(std::string *dst);
-std::string		itoa_cpp(int nb);
-void			format_cell(std::string s);
-void			print_line(std::string s1, std::string s2, std::string s3, std::string s4);
+class Zombie
+{
+	public:
+
+		Zombie(std::string s);
+		~Zombie();
+
+		void	announce(void) const;
+
+	private:
+
+		std::string	_name;
+};
+
+void	randomChump(std::string name);
+Zombie*	newZombie(std::string name);
 
 #endif

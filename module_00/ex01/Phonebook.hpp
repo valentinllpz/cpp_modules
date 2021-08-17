@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   awesomephonebook.hpp                               :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 15:53:17 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/17 19:19:17 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/17 12:39:42 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/17 19:18:56 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWESOMEPHONEBOOK_HPP
-# define AWESOMEPHONEBOOK_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+ 
+#include "awesomephonebook.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <sstream>
-#include "Contacts.hpp"
-#include "Phonebook.hpp"
+class Phonebook
+{
+	public:
 
-void			control_input(std::string *dst);
-std::string		itoa_cpp(int nb);
-void			format_cell(std::string s);
-void			print_line(std::string s1, std::string s2, std::string s3, std::string s4);
+		Phonebook(void);
+		~Phonebook(void);
+		
+		void		add_contact();
+		void		search_contact() const;
+		void		print_book() const;
+
+		Contacts	*get_list();
+		int			get_contact_nb() const;
+
+	private:
+
+		Contacts	list[8];
+		int			_contact_nb;
+};
 
 #endif

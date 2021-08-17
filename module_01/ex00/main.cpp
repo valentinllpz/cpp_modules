@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   awesomephonebook.hpp                               :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 15:53:17 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/17 19:19:17 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/17 20:27:42 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/17 20:42:57 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWESOMEPHONEBOOK_HPP
-# define AWESOMEPHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <sstream>
-#include "Contacts.hpp"
-#include "Phonebook.hpp"
+int		main()
+{
+	Zombie	*heap;
+	Zombie	stack("Karen");
 
-void			control_input(std::string *dst);
-std::string		itoa_cpp(int nb);
-void			format_cell(std::string s);
-void			print_line(std::string s1, std::string s2, std::string s3, std::string s4);
+	heap = newZombie("John");
+	heap->announce();
+	delete heap;
+	randomChump("Bob");
+	stack.announce();
 
-#endif
+	return (0);
+}

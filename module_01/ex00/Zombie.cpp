@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 12:39:42 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/17 16:37:07 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/17 19:34:43 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/17 20:39:46 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
- 
-#include "awesomephonebook.hpp"
+#include "Zombie.hpp"
 
-class Phonebook
+Zombie::Zombie(std::string s)
 {
-	public:
+	this->_name = s;
+	return ;
+}
 
-		Phonebook(void);
-		~Phonebook(void);
-		
-		void		add_contact();
-		void		search_contact() const;
-		void		print_book() const;
+Zombie::~Zombie()
+{
+	std::cout << this->_name << " has been destroyed." << std::endl;
+	return ;
+}
 
-		Contacts	*get_list();
-		int			get_contact_nb() const;
-
-	private:
-
-		Contacts	list[8];
-		int			_contact_nb;
-};
-
-#endif
+void	Zombie::announce(void) const
+{
+	std::cout << '<' << this->_name << "> BraiiiiiiinnnzzzZ..." << std::endl;
+	return ;
+}
