@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:21:53 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/18 17:44:24 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/18 17:42:38 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,24 @@
 
 #include <iostream>
 #include <string>
+#include <time.h>
 
 class Zombie
 {
 	public:
 
 		Zombie();
-		Zombie(std::string s);
+		Zombie(std::string name);
 		~Zombie();
 
 		void	announce(void) const;
+		void	set_name(std::string name);
 
 	private:
 
 		std::string	_name;
 };
 
-void	randomChump(std::string name);
-Zombie*	newZombie(std::string name);
+Zombie*	zombieHorde(int N, std::string name);
 
 #endif

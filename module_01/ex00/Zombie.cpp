@@ -6,11 +6,16 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 19:34:43 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/17 20:39:46 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/18 17:44:18 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie()
+{
+	return ;
+}
 
 Zombie::Zombie(std::string s)
 {
