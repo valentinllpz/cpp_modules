@@ -6,19 +6,23 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 19:09:40 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/18 19:34:59 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/19 16:28:42 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef	WEAPON_HPP
+#define	WEAPON_HPP
+
+#include <iostream>
 #include <string>
 
 class Weapon
 {
 	public:
 
-		Weapon();
+		Weapon(std::string name);
 		~Weapon();
-		std::string &getType() const;
+		std::string const &getType() const;
 		void setType(std::string type);
 
 	private:
@@ -26,3 +30,4 @@ class Weapon
 		std::string	_type;
 };
 
+#endif

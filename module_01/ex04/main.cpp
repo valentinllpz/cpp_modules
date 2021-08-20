@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 18:48:04 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/20 14:46:49 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/20 15:37:08 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ int		exit_error(int flag)
 	return (1);
 }
 
-std::string		add_replace_ext(std::string name)
-{
-	return (name + ".replace");
-}
-
 int		sed(std::string filename, std::string s1, std::string s2)
 {
 	std::ifstream	ifs;
@@ -43,7 +38,7 @@ int		sed(std::string filename, std::string s1, std::string s2)
 	ifs.open(filename);
 	if (ifs.fail())
 		return (4);
-	ofs.open(add_replace_ext(filename));
+	ofs.open(filename + ".replace");
 	if (ofs.fail())
 		return (5);
 	while (std::getline(ifs, buf))
@@ -82,6 +77,5 @@ int		main(int ac, char **av)
 		return (exit_error(3));
 	if ((ret = sed(av[1], s1, s2)) > 0)
 		return (exit_error(ret));
-
 	return (0);
 }

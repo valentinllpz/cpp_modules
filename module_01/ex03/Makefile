@@ -6,13 +6,16 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/08/18 18:49:17 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/08/19 16:32:02 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	Unnecessary_violence
 
 SRCS		=	main.cpp\
+				Weapon.cpp\
+				HumanA.cpp\
+				HumanB.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 16:03:34 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/19 17:16:03 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/18 18:48:04 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/20 17:04:23 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#include "Karen.hpp"
 
-#include "Weapon.hpp"
-
-class HumanB
+int main()
 {
-	public:
-
-		HumanB(std::string name);
-		~HumanB();
-		void		attack() const;
-		void		setWeapon(Weapon &weapon);
-
-	private:
-
-		Weapon			*_weapon;
-		std::string		_name;
-};
-
-#endif
+	std::string	input;
+	Karen		karen;
+	
+	std::cout << "Booting up Karen 2.0... Use at your own risks!" << std::endl;
+	std::cout << "What would you like to do ? ";
+	while (std::getline(std::cin, input) && input != "EXIT")
+	{
+		karen.complain(input);
+		std::cout << "\nWhat would you like to do next ? ";
+	}
+	std::cout << "\nSHUT UP KAREN\n";
+}
