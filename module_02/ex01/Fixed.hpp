@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 19:51:10 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/20 16:10:11 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/23 17:03:05 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/23 22:10:16 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-#define KAREN_HPP
+#ifndef		FIXED_HPP
+# define	FIXED_HPP
 
 #include <iostream>
-#include <string>
+#include <cmath>
 
-class Karen
+class Fixed
 {
-	public:
-
-		Karen();
-		~Karen();
-		void complain(std::string level) const;
-		
 	private:
-
-		void invalid(void) const;
-		void debug(void) const;
-		void info(void) const;
-		void warning(void) const;
-		void error(void) const;
+		int					_rawbits;
+		static const int	_binarypp = 8;
+	public:
+		Fixed();
+		Fixed(const int n);
+		Fixed(const float f);
+		~Fixed();
+		Fixed(Fixed const &src);
+		Fixed	&operator=(Fixed const &rhs);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
+
+std::ostream	&operator<<(std::ostream &o, Fixed const &i);
 
 #endif

@@ -24,18 +24,19 @@ Karen::~Karen()
 
 void	Karen::complain(std::string level) const
 {
-	void			(Karen::*fptr[])(void) const = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
-	std::string		index[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int				i;
+	void			(Karen::*fptr)(void) const;
 
-	for (i = 0; i < 4; i++)
-	{
-		if (level == index[i])
-		{
-			(this->*fptr[i])();
-			return ;
-		}
-	}
+	fptr = &Karen::invalid;
+	(level.compare("DEBUG") == 0) && (fptr = &Karen::debug);
+	(level.compare("INFO") == 0 ) && (fptr = &Karen::info);
+	(level.compare("WARNING") == 0 )&& (fptr = &Karen::warning);
+	(level.compare("ERROR") == 0) && (fptr = &Karen::error);
+	(this->*fptr)();
+	return ;
+}
+
+void Karen::invalid(void) const
+{
 	std::cout << "Available commands are \"DEBUG\", \"INFO\", \"WARNING\", \"ERROR\" and \"EXIT\". Is it that complicated?" << std::endl;
 	return ;
 }

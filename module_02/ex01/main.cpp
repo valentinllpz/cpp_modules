@@ -5,25 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 18:48:04 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/23 08:58:13 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/23 18:51:01 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/23 21:22:32 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Fixed.hpp"
 
-int main()
+int	main()
 {
-	std::string	input;
-	Karen		karen;
-	
-	std::cout << "Booting up Karen 2.0... Use at your own risks!" << std::endl;
-	std::cout << "What would you like to do ? ";
-	while (std::getline(std::cin, input) && input != "EXIT")
-	{
-		karen.complain(input);
-		std::cout << "\nWhat would you like to do next ? ";
-	}
-	std::cout << "\nSHUT UP KAREN\n";
+	Fixed a;
+	Fixed const b(10);
+	Fixed const c(42.42f);
+	Fixed const d(b);
+
+	a = Fixed(1234.4321f);
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return (0);
 }

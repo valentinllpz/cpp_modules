@@ -19,8 +19,8 @@ Zombie*	zombieHorde(int N, std::string name)
 	"Jean", "François",	"Michel", "Marie", "Baptiste", "Paul", "Pierre", "Bon"};
 	int		i;
 
-	srand(time(0));
+	std::srand(time(0));
 	for (i = 0 ; i < N ; i++)
-			horde[i].set_name(name + "-" + name2[rand()%(sizeof(name2) / sizeof(name2[0]))]);
+			horde[i].set_name(name + "-" + name2[std::rand()%(sizeof(name2) / sizeof(name2[0]))]);
 	return (horde);
 }

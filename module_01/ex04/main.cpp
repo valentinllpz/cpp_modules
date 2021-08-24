@@ -27,18 +27,29 @@ int		exit_error(int flag)
 	return (1);
 }
 
+std::string	replace(std::string txt, std::string s1, std::string s2)
+{
+	std::size_t		found;
+
+	while ((found = txt.find(s1)) != std::string::npos)
+	{
+		txt.erase(found, s1.length());
+		txt.insert(found, s2);
+	}
+	return (txt);
+}
+
 int		sed(std::string filename, std::string s1, std::string s2)
 {
 	std::ifstream	ifs;
 	std::ofstream	ofs;
 	std::string		buf;
 	std::string		txt;
-	std::size_t		i;
 
-	ifs.open(filename);
+	ifs.open(filename.c_str());
 	if (ifs.fail())
 		return (4);
-	ofs.open(filename + ".replace");
+	ofs.open((filename + ".replace").c_str());
 	if (ofs.fail())
 		return (5);
 	while (std::getline(ifs, buf))
@@ -47,17 +58,7 @@ int		sed(std::string filename, std::string s1, std::string s2)
 		if (!ifs.eof())
 			txt += '\n';
 	}
-	for (i = 0; i < txt.length(); i++)
-	{
-		if (txt.substr(i, s1.length()) == s1)
-		{
-			ofs << s2;
-			i += s1.length() - 1;
-		}
-		else
-			ofs << txt[i];
-		
-	}
+	ofs << replace(txt, s1, s2);
 	return (0);
 }
 
