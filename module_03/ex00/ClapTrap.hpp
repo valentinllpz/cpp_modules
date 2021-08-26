@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 19:51:10 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/26 14:01:11 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/26 14:08:47 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/26 16:22:58 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-#define KAREN_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
-#include <string>
 
-class Karen
+class ClapTrap
 {
-	public:
-
-		Karen();
-		~Karen();
-		void complain(std::string level) const;
-		
 	private:
+		
+	public:
+		ClapTrap();
+		ClapTrap(ClapTrap const &src);
+		~ClapTrap();
 
-		void invalid(void) const;
-		void debug(void) const;
-		void info(void) const;
-		void warning(void) const;
-		void error(void) const;
+		ClapTrap &operator=(ClapTrap const &rhs);
 };
+
+std::ostream	&operator<<(std::ostream &o, ClapTrap const &i);
 
 #endif
