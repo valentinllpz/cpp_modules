@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 17:33:55 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/23 21:28:44 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/26 17:50:32 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ int			Fixed::toInt(void) const
 std::ostream	&operator<<(std::ostream &o, Fixed const &i)
 {
 	o << i.toFloat();
-	return o;
+	return (o);
 }

@@ -6,13 +6,14 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/08/26 14:01:36 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/08/26 18:00:53 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	ex00
 
-SRCS		=	main.cpp
+SRCS		=	main.cpp\
+				ClapTrap.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98

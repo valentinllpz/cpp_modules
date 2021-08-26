@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 17:33:55 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/24 20:24:16 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/26 17:50:13 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ const Fixed		&Fixed::max(Fixed const &a, Fixed const &b)
 std::ostream	&operator<<(std::ostream &o, Fixed const &i)
 {
 	o << i.toFloat();
-	return o;
+	return (o);
 }
 
 Fixed		&min(Fixed &a, Fixed &b)

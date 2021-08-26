@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 17:33:55 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/23 18:59:06 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/26 17:50:23 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void		Fixed::setRawBits(int const raw)
 std::ostream	&operator<<(std::ostream &o, Fixed const &i)
 {
 	o << i.getRawBits();
-	return o;
+	return (o);
 }
