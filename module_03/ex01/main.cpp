@@ -6,20 +6,26 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:12:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/27 18:10:37 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/27 18:09:45 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int		main()
 {
 	ClapTrap	po("Po");
-	ClapTrap	tinkywinky("Tinkywinky");
-	ClapTrap	copy(tinkywinky);
+	ScavTrap	laalaa("Laa-Laa");
+	ScavTrap	scav_copy(laalaa);
 
-	po.attack(tinkywinky.getName());
-	tinkywinky.takeDammage(po.getAttackDammage());
+	std::cout << std::endl;
+	laalaa.guardGate();
+	laalaa.attack(po.getName());
+	po.takeDammage(laalaa.getAttackDammage());
+	po.attack("Laa-Laa");
 	po.beRepaired(10);
+	std::cout << std::endl;
+	
 	return (0);
 }

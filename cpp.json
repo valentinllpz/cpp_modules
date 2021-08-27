@@ -43,8 +43,6 @@
 			"#ifndef $1_HPP",
 			"# define $1_HPP",
 			"",
-			"#include <iostream>",
-			"",
 			"$2",
 			"",
 			"#endif",

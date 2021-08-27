@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/27 14:12:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/27 18:10:37 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/27 18:36:28 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/27 18:38:09 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-int		main()
+
+class DiamondTrap
 {
-	ClapTrap	po("Po");
-	ClapTrap	tinkywinky("Tinkywinky");
-	ClapTrap	copy(tinkywinky);
+	private:
+		std::string		_name;
+	public:
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(DiamondTrap const &src);
+		~DiamondTrap();
 
-	po.attack(tinkywinky.getName());
-	tinkywinky.takeDammage(po.getAttackDammage());
-	po.beRepaired(10);
-	return (0);
-}
+		DiamondTrap &operator=(DiamondTrap const &rhs);
+};
+
+std::ostream	&operator<<(std::ostream &o, DiamondTrap const &i);

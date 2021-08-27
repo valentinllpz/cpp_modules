@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/27 14:12:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/27 18:10:37 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/08/27 15:56:15 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/08/27 18:04:34 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int		main()
+class ScavTrap : public ClapTrap
 {
-	ClapTrap	po("Po");
-	ClapTrap	tinkywinky("Tinkywinky");
-	ClapTrap	copy(tinkywinky);
+	public:
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const &src);
+		~ScavTrap();
 
-	po.attack(tinkywinky.getName());
-	tinkywinky.takeDammage(po.getAttackDammage());
-	po.beRepaired(10);
-	return (0);
-}
+		ScavTrap &operator=(ScavTrap const &rhs);
+
+		void	guardGate();
+};
+
+std::ostream	&operator<<(std::ostream &o, ScavTrap const &i);
+
+#endif

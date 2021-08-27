@@ -6,11 +6,11 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/08/26 18:00:53 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/08/27 17:21:24 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	ex00
+NAME 		=	ClapTrap
 
 SRCS		=	main.cpp\
 				ClapTrap.cpp
@@ -25,7 +25,7 @@ all:		${NAME}
 
 ${NAME}:	 ${OBJS_PATH} ${OBJS}
 			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-			@echo "\033[0;32m\033[1mKaren2.0 is ready !\033[0m"
+			@echo "\033[0;32m\033[1mClapTrap is ready !\033[0m"
 
 ${OBJS_PATH}:
 			@mkdir -p $@
