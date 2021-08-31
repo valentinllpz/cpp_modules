@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 15:56:15 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/27 18:40:12 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/31 16:55:31 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ScavTrap : public virtual ClapTrap
 		ScavTrap &operator=(ScavTrap const &rhs);
 
 		void	guardGate();
+		void	attack(std::string const &target) const;
 };
 
 std::ostream	&operator<<(std::ostream &o, ScavTrap const &i);

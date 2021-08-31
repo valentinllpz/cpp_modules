@@ -6,23 +6,40 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:12:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/31 17:40:38 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/31 17:39:10 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int		main()
 {
-	ClapTrap	po("Po");
-	ClapTrap	tinkywinky("Tinkywinky");
-	ClapTrap	copy(tinkywinky);
+	ClapTrap		po("Po");
+	FragTrap		dipsy("Dipsy");
+	ScavTrap		laalaa("Laa-Laa");
+	DiamondTrap		tinkywinky("TinkyWinky");
+	DiamondTrap		diamond_copy(tinkywinky);
+	
 
 	std::cout << std::endl;
-	po.attack(tinkywinky.getName());
-	tinkywinky.takeDammage(po.getAttackDammage());
-	po.beRepaired(10);
+	tinkywinky.whoAmI();
+	tinkywinky.guardGate();
+	tinkywinky.attack("Po");
+	po.takeDammage(tinkywinky.getAttackDammage());
+	dipsy.attack("Tinkywinky");
+	tinkywinky.takeDammage(dipsy.getAttackDammage());
+	laalaa.attack("Tinkywinky");
+	tinkywinky.takeDammage(laalaa.getAttackDammage());
+	tinkywinky.attack("Laa-Laa");
+	laalaa.takeDammage(tinkywinky.getAttackDammage());
+	dipsy.attack("Tinkywinky");
+	tinkywinky.takeDammage(dipsy.getAttackDammage());
+	laalaa.attack("Tinkywinky");
+	tinkywinky.takeDammage(laalaa.getAttackDammage());
+	tinkywinky.attack("Dipsy");
+	tinkywinky.beRepaired(10);
+	tinkywinky.highFiveGuys();
 	std::cout << std::endl;
-
+	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:56:56 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/27 17:20:11 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/31 17:11:52 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,9 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 void	ClapTrap::attack(std::string const &target) const
 {
 	if (this->_hitPoints > 0)
-	{
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing ";
-		std::cout <<  this->getAttackDammage() << " points of dammage!" << std::endl;
-	}
+		std::cout << this->_name << " attacks " << target << " with his ClapTrap claw." << std::endl;
 	else
-		std::cout << "ClapTrap " << this->_name << " is K.O. and cannot attack." << std::endl;
+		std::cout << this->_name << " is K.O. and cannot attack." << std::endl;
 	return ; 
 }
 
@@ -124,7 +121,7 @@ int		ClapTrap::getHitPoints() const
 
 void	ClapTrap::setHitPoints(int n)
 {
-	this->_hitPoints += n;
+	this->_hitPoints = n;
 	return ;
 }
 
@@ -135,7 +132,7 @@ int		ClapTrap::getEnergyPoints() const
 
 void	ClapTrap::setEnergyPoints(int n)
 {
-	this->_energyPoints += n;
+	this->_energyPoints = n;
 	return ;
 }
 
@@ -146,7 +143,7 @@ int		ClapTrap::getAttackDammage() const
 
 void	ClapTrap::setAttackDammage(int n)
 {
-	this->_attackDammage += n;
+	this->_attackDammage = n;
 	return ;
 }
 

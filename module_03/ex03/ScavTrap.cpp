@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 15:55:51 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/27 18:04:39 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/08/31 17:01:17 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ ScavTrap::ScavTrap()
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	this->setName(name);
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDammage(20);
@@ -35,7 +34,7 @@ ScavTrap::ScavTrap(std::string name)
 	return ;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src)
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src)
 {
 	*this = src;
 	std::cout << "Copy constructor called for a ScavTrap named " << this->getName() << std::endl;
@@ -68,6 +67,15 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs)
 void		ScavTrap::guardGate()
 {
 	std::cout << this->getName() << " the ScavTrap have enterred in Gate keeper mode." << std::endl;
+	return ;
+}
+
+void	ScavTrap::attack(std::string const &target) const
+{
+	if (this->getHitPoints() > 0)
+		std::cout << this->getName() << " attacks " << target << " with his ScavTrap laser beam." << std::endl;
+	else
+		std::cout << this->getName() << " is K.O. and cannot attack." << std::endl;
 	return ;
 }
 
