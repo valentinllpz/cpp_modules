@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 14:14:20 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/31 17:30:59 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:38:09 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap()
 {
 	this->_name = "Nameless";
 	this->setName(_name + "_clap_name");
-	this->setAttackDammage(30);
+	this->setAttackDamage(30);
 	std::cout << "Default constructor called for a DiamondTrap named " << this->_name << std::endl;
 	return ;
 }
@@ -28,7 +28,7 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name")
 {
 	this->_name = name;
-	this->setAttackDammage(30);
+	this->setAttackDamage(30);
 	std::cout << "Parametric constructor called for a DiamondTrap named " << this->_name << std::endl;
 	return ;
 }
@@ -55,7 +55,7 @@ DiamondTrap		&DiamondTrap::operator=(DiamondTrap const &rhs)
 	this->setName(rhs.getName());
 	this->setHitPoints(rhs.getHitPoints());
 	this->setEnergyPoints(rhs.getEnergyPoints());
-	this->setAttackDammage(rhs.getAttackDammage());
+	this->setAttackDamage(rhs.getAttackDamage());
 	return (*this);
 }
 

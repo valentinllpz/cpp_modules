@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 17:50:48 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/31 16:59:42 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:10:02 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : public ClapTrap
 {
 	public:
 		FragTrap();

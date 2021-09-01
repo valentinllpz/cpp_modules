@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 16:56:56 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/31 17:11:52 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:38:09 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 /*                       CONSTRUCTORS / DESTRUCTORS                           */
 /* ************************************************************************** */
 
-ClapTrap::ClapTrap() : _name("Nameless"), _hitPoints(10), _energyPoints(10), _attackDammage(0)
+ClapTrap::ClapTrap() : _name("Nameless"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Default constructor called for a ClapTrap named " << this->_name << std::endl;
 	return ;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDammage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Parametric constructor called for a ClapTrap named " << this->_name << std::endl;
 	return ;
@@ -50,7 +50,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 	this->_name = rhs.getName();
 	this->_hitPoints = rhs.getHitPoints();
 	this->_hitPoints = rhs.getEnergyPoints();
-	this->_attackDammage = rhs.getAttackDammage();
+	this->_attackDamage = rhs.getAttackDamage();
 	return (*this);
 }
 
@@ -67,12 +67,12 @@ void	ClapTrap::attack(std::string const &target) const
 	return ; 
 }
 
-void	ClapTrap::takeDammage(unsigned int amount)
+void	ClapTrap::takedamage(unsigned int amount)
 {
 	if (this->_hitPoints > 0)
 	{
 		this->_hitPoints -= amount;
-		std::cout << this->_name << " takes " << amount << " points of dammage." << std::endl;
+		std::cout << this->_name << " takes " << amount << " points of damage." << std::endl;
 		if (this->_hitPoints <= 0)
 		{
 			std::cout << this->_name << " is K.O." << std::endl;
@@ -136,14 +136,14 @@ void	ClapTrap::setEnergyPoints(int n)
 	return ;
 }
 
-int		ClapTrap::getAttackDammage() const
+int		ClapTrap::getAttackDamage() const
 {
-	return (this->_attackDammage);
+	return (this->_attackDamage);
 }
 
-void	ClapTrap::setAttackDammage(int n)
+void	ClapTrap::setAttackDamage(int n)
 {
-	this->_attackDammage = n;
+	this->_attackDamage = n;
 	return ;
 }
 

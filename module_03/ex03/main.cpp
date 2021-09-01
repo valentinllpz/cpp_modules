@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:12:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/31 17:39:10 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:37:58 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ int		main()
 	tinkywinky.whoAmI();
 	tinkywinky.guardGate();
 	tinkywinky.attack("Po");
-	po.takeDammage(tinkywinky.getAttackDammage());
+	po.takedamage(tinkywinky.getAttackDamage());
 	dipsy.attack("Tinkywinky");
-	tinkywinky.takeDammage(dipsy.getAttackDammage());
+	tinkywinky.takedamage(dipsy.getAttackDamage());
 	laalaa.attack("Tinkywinky");
-	tinkywinky.takeDammage(laalaa.getAttackDammage());
+	tinkywinky.takedamage(laalaa.getAttackDamage());
 	tinkywinky.attack("Laa-Laa");
-	laalaa.takeDammage(tinkywinky.getAttackDammage());
+	laalaa.takedamage(tinkywinky.getAttackDamage());
 	dipsy.attack("Tinkywinky");
-	tinkywinky.takeDammage(dipsy.getAttackDammage());
+	tinkywinky.takedamage(dipsy.getAttackDamage());
 	laalaa.attack("Tinkywinky");
-	tinkywinky.takeDammage(laalaa.getAttackDammage());
+	tinkywinky.takedamage(laalaa.getAttackDamage());
 	tinkywinky.attack("Dipsy");
 	tinkywinky.beRepaired(10);
 	tinkywinky.highFiveGuys();

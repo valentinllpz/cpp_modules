@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:12:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/31 17:40:38 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:37:58 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main()
 
 	std::cout << std::endl;
 	po.attack(tinkywinky.getName());
-	tinkywinky.takeDammage(po.getAttackDammage());
+	tinkywinky.takedamage(po.getAttackDamage());
 	po.beRepaired(10);
 	std::cout << std::endl;
 

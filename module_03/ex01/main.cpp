@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:12:45 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/27 18:09:45 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:37:58 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main()
 	std::cout << std::endl;
 	laalaa.guardGate();
 	laalaa.attack(po.getName());
-	po.takeDammage(laalaa.getAttackDammage());
+	po.takedamage(laalaa.getAttackDamage());
 	po.attack("Laa-Laa");
 	po.beRepaired(10);
 	std::cout << std::endl;

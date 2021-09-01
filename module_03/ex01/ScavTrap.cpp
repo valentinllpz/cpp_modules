@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 15:55:51 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/08/31 17:01:17 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:38:09 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap()
 {
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
-	this->setAttackDammage(20);
+	this->setAttackDamage(20);
 	std::cout << "Default constructor called for a ScavTrap named " << this->getName() << std::endl;
 	return ;
 }
@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
-	this->setAttackDammage(20);
+	this->setAttackDamage(20);
 	std::cout << "Parametric constructor called for a ScavTrap named " << this->getName() << std::endl;
 	return ;
 }
@@ -56,7 +56,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs)
 	this->setName(rhs.getName());
 	this->setHitPoints(rhs.getHitPoints());
 	this->setEnergyPoints(rhs.getEnergyPoints());
-	this->setAttackDammage(rhs.getAttackDammage());
+	this->setAttackDamage(rhs.getAttackDamage());
 	return (*this);
 }
 
