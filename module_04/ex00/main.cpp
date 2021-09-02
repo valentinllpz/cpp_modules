@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 19:18:29 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/01 19:54:05 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/02 13:52:50 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ int main()
 	std::cout << wrongI->getType() << " " << std::endl;
 	wrongI->makeSound();
 	wrongMeta->makeSound();
+	std::cout << std::endl;
+	delete meta;
+	delete i;
+	delete j;
+	delete wrongMeta;
+	delete wrongI;
 
 	return (0);
 }

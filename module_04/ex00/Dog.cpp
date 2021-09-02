@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:45:13 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/01 19:26:33 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/02 18:40:27 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@
 
 Dog::Dog()
 {
+	std::cout << "Default constructor for Dog instance called." << std::endl;
 	this->type = "Dog";
 	return ;
 }
 
 Dog::Dog(Dog const &src)
 {
+	std::cout << "Copy constructor for Dog instance called." << std::endl;
 	*this = src;
 	return ;
 }
 
 Dog::~Dog()
 {
+	std::cout << "Default destructor for Dog instance called." << std::endl;
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:41:52 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/01 19:21:01 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/02 13:51:56 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog : public Animal
 	public:
 		Dog();
 		Dog(Dog const &src);
-		~Dog();
+		virtual	~Dog();
 
 		Dog &operator=(Dog const &rhs);
 		virtual void	makeSound() const;

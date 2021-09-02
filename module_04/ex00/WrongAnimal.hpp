@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 16:00:18 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/01 19:55:47 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/02 13:43:48 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongAnimal
 	public:
 		WrongAnimal();
 		WrongAnimal(WrongAnimal const &src);
-		~WrongAnimal();
+		virtual	~WrongAnimal();
 
 		WrongAnimal 	&operator=(WrongAnimal const &rhs);
 		void			makeSound() const;

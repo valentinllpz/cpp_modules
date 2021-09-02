@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:45:13 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/01 19:26:51 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/02 18:39:52 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@
 
 Cat::Cat()
 {
+	std::cout << "Default constructor for Cat instance called." << std::endl;
 	this->type = "Cat";
 	return ;
 }
 
 Cat::Cat(Cat const &src)
 {
+	std::cout << "Copy constructor for Cat instance called." << std::endl;
 	*this = src;
 	return ;
 }
 
 Cat::~Cat()
 {
+	std::cout << "Default destructor for Cat instance called." << std::endl;
 	return ;
 }
 
