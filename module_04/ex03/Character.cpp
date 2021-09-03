@@ -1,42 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 18:45:13 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 14:23:00 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/09/03 17:41:42 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/09/03 17:59:11 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "Character.hpp"
 
 /* ************************************************************************** */
 /*                        CONSTRUCTORS / DESTRUCTORS                          */
 /* ************************************************************************** */
 
-Cat::Cat()
+Character::Character()
 {
-	std::cout << "Default constructor for Cat instance called." << std::endl;
-	this->type = "Cat";
-	this->_brain = new Brain();
+	int		i;
+
+	std::cout << "Default constructor for Character instance called." << std::endl;
+	this->name = "unset";
+	for (i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 	return ;
 }
 
-Cat::Cat(Cat const &src)
+Character::Character(std::string name)
 {
-	std::cout << "Copy constructor for Cat instance called." << std::endl;
-	this->_brain = NULL;
+	int		i;
+
+	std::cout << "Default constructor for Character instance called." << std::endl;
+	this->name = name;
+	for (i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
+	return ;
+}
+
+Character::Character(Character const &src)
+{
 	*this = src;
 	return ;
 }
 
-Cat::~Cat()
+Character::~Character()
 {
-	delete this->_brain;
-	std::cout << "Default destructor for Cat instance called." << std::endl;
 	return ;
 }
 
@@ -44,12 +53,8 @@ Cat::~Cat()
 /*                            OPERATORS OVERLOAD                              */
 /* ************************************************************************** */
 
-Cat	&Cat::operator=(Cat const &rhs)
+Character	&Character::operator=(Character const &rhs)
 {
-	this->type = rhs.getType();
-	if (this->_brain)
-		delete this->_brain;
-	this->_brain = new Brain(*rhs._brain);
 	return (*this);
 }
 
@@ -57,30 +62,7 @@ Cat	&Cat::operator=(Cat const &rhs)
 /*                             MEMBER FUNCTIONS                               */
 /* ************************************************************************** */
 
-void		Cat::makeSound() const
-{
-	std::cout << "Cat: Meeeooow!" << std::endl;
-	return ;
-}
 
-void		Cat::educate(std::string newIdeas[100])
-{
-	this->_brain->setIdeas(newIdeas);
-	return ;
-}
-
-void		Cat::analyze()
-{
-	int				i;
-	std::string		*ptr;
-
-	ptr = this->_brain->getIdeas();
-	std::cout << "Analyzing brain's content:" << std::endl;
-	for (i = 0; i < 100; i++)
-		std::cout << ptr[i] << " ";
-	std::cout << "\nDone." << std::endl;
-	return;
-}
 
 /* ************************************************************************** */
 /*                             GETTERS / SETTERS                              */
@@ -92,8 +74,7 @@ void		Cat::analyze()
 /*                            NON MEMBER OVERLOAD                             */
 /* ************************************************************************** */
 
-std::ostream	&operator<<(std::ostream &o, Cat const &i)
+std::ostream	&operator<<(std::ostream &o, Character const &i)
 {
-	o << i.getType();
 	return (o);
 }

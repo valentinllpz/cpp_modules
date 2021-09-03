@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:45:13 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 14:23:00 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/02 18:40:27 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "Dog.hpp"
 
 /* ************************************************************************** */
 /*                        CONSTRUCTORS / DESTRUCTORS                          */
 /* ************************************************************************** */
 
-Cat::Cat()
+Dog::Dog()
 {
-	std::cout << "Default constructor for Cat instance called." << std::endl;
-	this->type = "Cat";
-	this->_brain = new Brain();
+	std::cout << "Default constructor for Dog instance called." << std::endl;
+	this->type = "Dog";
 	return ;
 }
 
-Cat::Cat(Cat const &src)
+Dog::Dog(Dog const &src)
 {
-	std::cout << "Copy constructor for Cat instance called." << std::endl;
-	this->_brain = NULL;
+	std::cout << "Copy constructor for Dog instance called." << std::endl;
 	*this = src;
 	return ;
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	delete this->_brain;
-	std::cout << "Default destructor for Cat instance called." << std::endl;
+	std::cout << "Default destructor for Dog instance called." << std::endl;
 	return ;
 }
 
@@ -44,12 +40,9 @@ Cat::~Cat()
 /*                            OPERATORS OVERLOAD                              */
 /* ************************************************************************** */
 
-Cat	&Cat::operator=(Cat const &rhs)
+Dog	&Dog::operator=(Dog const &rhs)
 {
 	this->type = rhs.getType();
-	if (this->_brain)
-		delete this->_brain;
-	this->_brain = new Brain(*rhs._brain);
 	return (*this);
 }
 
@@ -57,29 +50,10 @@ Cat	&Cat::operator=(Cat const &rhs)
 /*                             MEMBER FUNCTIONS                               */
 /* ************************************************************************** */
 
-void		Cat::makeSound() const
+void		Dog::makeSound() const
 {
-	std::cout << "Cat: Meeeooow!" << std::endl;
+	std::cout << "Dog: Woof Woof!" << std::endl;
 	return ;
-}
-
-void		Cat::educate(std::string newIdeas[100])
-{
-	this->_brain->setIdeas(newIdeas);
-	return ;
-}
-
-void		Cat::analyze()
-{
-	int				i;
-	std::string		*ptr;
-
-	ptr = this->_brain->getIdeas();
-	std::cout << "Analyzing brain's content:" << std::endl;
-	for (i = 0; i < 100; i++)
-		std::cout << ptr[i] << " ";
-	std::cout << "\nDone." << std::endl;
-	return;
 }
 
 /* ************************************************************************** */
@@ -92,7 +66,7 @@ void		Cat::analyze()
 /*                            NON MEMBER OVERLOAD                             */
 /* ************************************************************************** */
 
-std::ostream	&operator<<(std::ostream &o, Cat const &i)
+std::ostream	&operator<<(std::ostream &o, Dog const &i)
 {
 	o << i.getType();
 	return (o);

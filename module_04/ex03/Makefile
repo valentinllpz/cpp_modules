@@ -6,19 +6,13 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/09/03 14:14:51 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/09/03 15:15:35 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	ex01
 
-SRCS		=	main.cpp\
-				Animal.cpp\
-				WrongAnimal.cpp\
-				Dog.cpp\
-				Cat.cpp\
-				Brain.cpp\
-				WrongCat.cpp
+SRCS		=	main.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98

@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 19:18:29 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/02 21:27:21 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/03 14:32:14 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 void	advanced_tests()
 {
 	Cat			cat;
-	Cat			cat_cpy;
 	std::string ideas[100];
 
 	ideas[0] = "eat";
@@ -28,7 +27,7 @@ void	advanced_tests()
 	cat.analyze();
 	std::cout << "Teaching more tricks:" << std::endl;
 	ideas[3] = "skate";
-	cat_cpy = cat;
+	Cat			cat_cpy(cat);
 	cat_cpy.setType("Dog");
 	cat.educate(ideas);
 	std::cout << "[CAT]: ";
@@ -41,7 +40,7 @@ void	advanced_tests()
 
 int	main()
 {
-/*	int	const		size = 6;
+	int	const		size = 6;
 	Animal 			*array[size];
 	int				i;
 
@@ -66,6 +65,6 @@ int	main()
 	for (i = 0; i < size; i++)
 		delete array[i];
 	std::cout << "\nExiting main now." << std::endl;
-	//*/advanced_tests();
+	//advanced_tests();
 	return (0);
 }

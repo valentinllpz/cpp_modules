@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 18:45:13 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 14:23:00 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/09/01 16:04:27 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/09/03 14:53:02 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "AAnimal.hpp"
 
 /* ************************************************************************** */
 /*                        CONSTRUCTORS / DESTRUCTORS                          */
 /* ************************************************************************** */
 
-Cat::Cat()
+AAnimal::AAnimal()
 {
-	std::cout << "Default constructor for Cat instance called." << std::endl;
-	this->type = "Cat";
-	this->_brain = new Brain();
+	std::cout << "Default constructor for AAnimal instance called." << std::endl;
 	return ;
 }
 
-Cat::Cat(Cat const &src)
+AAnimal::AAnimal(AAnimal const &src)
 {
-	std::cout << "Copy constructor for Cat instance called." << std::endl;
-	this->_brain = NULL;
 	*this = src;
+	std::cout << "Copy constructor for AAnimal instance called." << std::endl;
 	return ;
 }
 
-Cat::~Cat()
+AAnimal::~AAnimal()
 {
-	delete this->_brain;
-	std::cout << "Default destructor for Cat instance called." << std::endl;
+	std::cout << "Default destructor for AAnimal instance called." << std::endl;
 	return ;
 }
 
@@ -44,55 +39,32 @@ Cat::~Cat()
 /*                            OPERATORS OVERLOAD                              */
 /* ************************************************************************** */
 
-Cat	&Cat::operator=(Cat const &rhs)
+AAnimal		&AAnimal::operator=(AAnimal const &rhs)
 {
 	this->type = rhs.getType();
-	if (this->_brain)
-		delete this->_brain;
-	this->_brain = new Brain(*rhs._brain);
 	return (*this);
-}
-
-/* ************************************************************************** */
-/*                             MEMBER FUNCTIONS                               */
-/* ************************************************************************** */
-
-void		Cat::makeSound() const
-{
-	std::cout << "Cat: Meeeooow!" << std::endl;
-	return ;
-}
-
-void		Cat::educate(std::string newIdeas[100])
-{
-	this->_brain->setIdeas(newIdeas);
-	return ;
-}
-
-void		Cat::analyze()
-{
-	int				i;
-	std::string		*ptr;
-
-	ptr = this->_brain->getIdeas();
-	std::cout << "Analyzing brain's content:" << std::endl;
-	for (i = 0; i < 100; i++)
-		std::cout << ptr[i] << " ";
-	std::cout << "\nDone." << std::endl;
-	return;
 }
 
 /* ************************************************************************** */
 /*                             GETTERS / SETTERS                              */
 /* ************************************************************************** */
 
+std::string		AAnimal::getType() const
+{
+	return (this->type);
+}
 
+void			AAnimal::setType(std::string newType)
+{
+	this->type = newType;
+	return ;
+}
 
 /* ************************************************************************** */
 /*                            NON MEMBER OVERLOAD                             */
 /* ************************************************************************** */
 
-std::ostream	&operator<<(std::ostream &o, Cat const &i)
+std::ostream	&operator<<(std::ostream &o, AAnimal const &i)
 {
 	o << i.getType();
 	return (o);

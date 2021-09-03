@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Amateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 18:45:13 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 14:23:00 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/09/03 15:38:03 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/09/03 16:04:52 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
 /* ************************************************************************** */
 /*                        CONSTRUCTORS / DESTRUCTORS                          */
 /* ************************************************************************** */
 
-Cat::Cat()
+AMateria::AMateria()
 {
-	std::cout << "Default constructor for Cat instance called." << std::endl;
-	this->type = "Cat";
-	this->_brain = new Brain();
+	this->type = "unset";
 	return ;
 }
 
-Cat::Cat(Cat const &src)
+AMateria::AMateria(std::string const &type)
 {
-	std::cout << "Copy constructor for Cat instance called." << std::endl;
-	this->_brain = NULL;
+	this->type = type;
+	return ;
+}
+
+
+AMateria::AMateria(AMateria const &src)
+{
 	*this = src;
 	return ;
 }
 
-Cat::~Cat()
+AMateria::~AMateria()
 {
-	delete this->_brain;
-	std::cout << "Default destructor for Cat instance called." << std::endl;
 	return ;
 }
 
@@ -44,12 +44,9 @@ Cat::~Cat()
 /*                            OPERATORS OVERLOAD                              */
 /* ************************************************************************** */
 
-Cat	&Cat::operator=(Cat const &rhs)
+AMateria	&AMateria::operator=(AMateria const &rhs)
 {
-	this->type = rhs.getType();
-	if (this->_brain)
-		delete this->_brain;
-	this->_brain = new Brain(*rhs._brain);
+	this->type = rhs.type;
 	return (*this);
 }
 
@@ -57,43 +54,16 @@ Cat	&Cat::operator=(Cat const &rhs)
 /*                             MEMBER FUNCTIONS                               */
 /* ************************************************************************** */
 
-void		Cat::makeSound() const
+void		AMateria::use(ICharacter &target)
 {
-	std::cout << "Cat: Meeeooow!" << std::endl;
-	return ;
-}
-
-void		Cat::educate(std::string newIdeas[100])
-{
-	this->_brain->setIdeas(newIdeas);
-	return ;
-}
-
-void		Cat::analyze()
-{
-	int				i;
-	std::string		*ptr;
-
-	ptr = this->_brain->getIdeas();
-	std::cout << "Analyzing brain's content:" << std::endl;
-	for (i = 0; i < 100; i++)
-		std::cout << ptr[i] << " ";
-	std::cout << "\nDone." << std::endl;
-	return;
+	
 }
 
 /* ************************************************************************** */
 /*                             GETTERS / SETTERS                              */
 /* ************************************************************************** */
 
-
-
-/* ************************************************************************** */
-/*                            NON MEMBER OVERLOAD                             */
-/* ************************************************************************** */
-
-std::ostream	&operator<<(std::ostream &o, Cat const &i)
+std::string const	&AMateria::getType() const
 {
-	o << i.getType();
-	return (o);
+	return (this->type);
 }

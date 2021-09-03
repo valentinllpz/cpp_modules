@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 18:45:13 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 14:23:00 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/09/03 16:33:50 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/09/03 17:28:05 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "Ice.hpp"
 
 /* ************************************************************************** */
 /*                        CONSTRUCTORS / DESTRUCTORS                          */
 /* ************************************************************************** */
 
-Cat::Cat()
+Ice::Ice() : AMateria("ice")
 {
-	std::cout << "Default constructor for Cat instance called." << std::endl;
-	this->type = "Cat";
-	this->_brain = new Brain();
+	std::cout << "Default constructor for Ice instance called." << std::endl;
 	return ;
 }
 
-Cat::Cat(Cat const &src)
+Ice::Ice(Ice const &src) : AMateria("ice")
 {
-	std::cout << "Copy constructor for Cat instance called." << std::endl;
-	this->_brain = NULL;
+	std::cout << "Parametric constructor for Ice instance called." << std::endl;
 	*this = src;
 	return ;
 }
 
-Cat::~Cat()
+Ice::~Ice()
 {
-	delete this->_brain;
-	std::cout << "Default destructor for Cat instance called." << std::endl;
+	std::cout << "Destructor for Ice instance called." << std::endl;
 	return ;
 }
 
@@ -44,12 +39,9 @@ Cat::~Cat()
 /*                            OPERATORS OVERLOAD                              */
 /* ************************************************************************** */
 
-Cat	&Cat::operator=(Cat const &rhs)
+Ice	&Ice::operator=(Ice const &rhs)
 {
 	this->type = rhs.getType();
-	if (this->_brain)
-		delete this->_brain;
-	this->_brain = new Brain(*rhs._brain);
 	return (*this);
 }
 
@@ -57,43 +49,17 @@ Cat	&Cat::operator=(Cat const &rhs)
 /*                             MEMBER FUNCTIONS                               */
 /* ************************************************************************** */
 
-void		Cat::makeSound() const
+AMateria	*AMateria::clone() const
 {
-	std::cout << "Cat: Meeeooow!" << std::endl;
-	return ;
+	return (new Ice());
 }
 
-void		Cat::educate(std::string newIdeas[100])
+void		use(ICharacter &target)
 {
-	this->_brain->setIdeas(newIdeas);
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 	return ;
-}
-
-void		Cat::analyze()
-{
-	int				i;
-	std::string		*ptr;
-
-	ptr = this->_brain->getIdeas();
-	std::cout << "Analyzing brain's content:" << std::endl;
-	for (i = 0; i < 100; i++)
-		std::cout << ptr[i] << " ";
-	std::cout << "\nDone." << std::endl;
-	return;
 }
 
 /* ************************************************************************** */
 /*                             GETTERS / SETTERS                              */
 /* ************************************************************************** */
-
-
-
-/* ************************************************************************** */
-/*                            NON MEMBER OVERLOAD                             */
-/* ************************************************************************** */
-
-std::ostream	&operator<<(std::ostream &o, Cat const &i)
-{
-	o << i.getType();
-	return (o);
-}
