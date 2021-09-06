@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 16:27:42 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 17:00:39 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/06 19:19:03 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CURE_HPP
 
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 class Cure : public AMateria
 {
@@ -24,8 +25,8 @@ class Cure : public AMateria
 
 		Cure &operator=(Cure const &rhs);
 
-		virtual AMateria    *clone() const;
-		virtual void        use(ICharacter &target);
+		AMateria    *clone() const;
+		void        use(ICharacter &target);
 };
 
 #endif

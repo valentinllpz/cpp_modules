@@ -6,16 +6,21 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/09/03 15:15:35 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/09/06 20:00:44 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	ex01
+NAME 		=	ex03
 
-SRCS		=	main.cpp
+SRCS		=	main.cpp\
+				AMateria.cpp\
+				Character.cpp\
+				Cure.cpp\
+				Ice.cpp\
+				MateriaSource.cpp
 
 CC			= 	clang++
-CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+CFLAGS		= 	-g3 -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
 OBJS_PATH	= 	./.objs/
 OBJS		= 	${addprefix ${OBJS_PATH}, ${SRCS:.cpp=.o}}
@@ -24,7 +29,7 @@ all:		${NAME}
 
 ${NAME}:	 ${OBJS_PATH} ${OBJS}
 			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-			@echo "\033[0;32m\033[1mex01 is ready !\033[0m"
+			@echo "\033[0;32m\033[1mex03 is ready !\033[0m"
 
 ${OBJS_PATH}:
 			@mkdir -p $@

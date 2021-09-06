@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 15:17:12 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 16:45:03 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/06 19:56:28 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -34,5 +37,7 @@ class AMateria
         virtual AMateria    *clone() const = 0;
         virtual void        use(ICharacter &target);
 };
+
+std::ostream	&operator<<(std::ostream &o, AMateria const &i);
 
 #endif

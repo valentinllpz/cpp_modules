@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 16:33:50 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/03 17:22:50 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/06 16:21:52 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Cure::Cure() : AMateria("cure")
 
 Cure::Cure(Cure const &src) : AMateria("cure")
 {
-	std::cout << "Parametric constructor for Cure instance called." << std::endl;
+	std::cout << "Copy constructor for Cure instance called." << std::endl;
 	*this = src;
 	return ;
 }
@@ -41,7 +41,9 @@ Cure::~Cure()
 
 Cure	&Cure::operator=(Cure const &rhs)
 {
-	this->type = rhs.getType();
+//	this->type = rhs.getType();
+	(void)rhs;
+	std::cout << "coucou = cure" << std::endl;
 	return (*this);
 }
 
@@ -49,12 +51,12 @@ Cure	&Cure::operator=(Cure const &rhs)
 /*                             MEMBER FUNCTIONS                               */
 /* ************************************************************************** */
 
-AMateria	*AMateria::clone() const
+AMateria	*Cure::clone() const
 {
 	return (new Cure());
 }
 
-void		use(ICharacter &target)
+void		Cure::use(ICharacter &target)
 {
 	std::cout << "* heals " << target.getName() << "'s wonds *" << std::endl;
 	return ;
