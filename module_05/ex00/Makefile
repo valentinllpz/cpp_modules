@@ -6,18 +6,14 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/09/07 17:13:02 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/09/07 17:19:04 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	ex03
+NAME 		=	ex00
 
 SRCS		=	main.cpp\
-				AMateria.cpp\
-				Character.cpp\
-				Cure.cpp\
-				Ice.cpp\
-				MateriaSource.cpp
+				Bureaucrat.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
@@ -29,7 +25,7 @@ all:		${NAME}
 
 ${NAME}:	 ${OBJS_PATH} ${OBJS}
 			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-			@echo "\033[0;32m\033[1mex03 is ready !\033[0m"
+			@echo "\033[0;32m\033[1mex00 is ready !\033[0m"
 
 ${OBJS_PATH}:
 			@mkdir -p $@
