@@ -6,12 +6,12 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:09:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/09 17:01:52 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/09 17:56:08 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 #include <sstream>
 
 int			get_valid_input()
@@ -33,6 +33,40 @@ int			get_valid_input()
 	}
 	return (nb);
 }
+
+void		test_ex01(Bureaucrat *avatar)
+{
+	int		grade;
+	Form	*f;
+	
+	std::cout << "Manager: Hey " << avatar->getName() << "! ";
+	while (1)
+	{
+		std::cout << "Do you remember which grade is needed to sign the Form LOL420? ";
+		grade = get_valid_input();
+		try
+		{
+			if (grade > 150)
+				throw Form::GradeTooLowException();
+			else if (grade < 1)
+				throw Form::GradeTooHighException();
+			std::cout << "Oh right, then can you work on this please? Thanks. " << std::endl;
+			f = new Form("LOL420", grade, 10, 0);
+			std::cout  << *f << '\n' << std::endl; // shitty output to fix
+			avatar->signForm(*f);
+			if (f->getSignature())
+				avatar->incGrade();
+			break ;
+		}
+		catch(std::exception & e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	delete f;
+	return ;
+}
+
 
 Bureaucrat	*test_ex00()
 {
@@ -86,13 +120,16 @@ Bureaucrat	*test_ex00()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << std::endl;
 	return (avatar);
 }
 
 int		main()
 {
+	Bureaucrat 	*avatar;
 
-	std::cout << "***** Bureaucrat simulator (v0.0) *****\n";
-	test_ex00();
+	std::cout << "***** Bureaucrat simulator (v0.1) *****\n";
+	avatar = test_ex00();
+	test_ex01(avatar);
 	return (0);
 }
