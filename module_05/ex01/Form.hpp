@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:52:49 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/09 15:37:40 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/15 14:26:18 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Form
 			public:
 				virtual const char *what() const throw()
 				{
-					return ("Form error: grade can't get any higher than 1.");
+					return ("Form error: grade is too high.");
 				}
 		};
 
@@ -54,7 +54,7 @@ class Form
 			public:
 				virtual const char *what() const throw()
 				{
-					return ("Form error: grade can't get any lower than 150.");
+					return ("Form error: grade is too low.");
 				}
 		};
 };

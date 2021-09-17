@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 14:25:02 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/15 19:50:34 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/17 14:46:44 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,8 @@ Form	&Form::beSigned(Bureaucrat const &x)
 void	Form::canExecute(Bureaucrat &executor) const
 {
 	if (!this->_signature)
-	{
 		throw Form::FormNotSignedException();
-		return ;
-	}
-	if (executor.getGrade() > this->_gradeExec)
+	else if (executor.getGrade() > this->_gradeExec)
 		throw Form::GradeTooLowException();
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:09:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/09 17:56:08 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:09:36 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,10 @@ void		test_ex01(Bureaucrat *avatar)
 		grade = get_valid_input();
 		try
 		{
-			if (grade > 150)
-				throw Form::GradeTooLowException();
-			else if (grade < 1)
-				throw Form::GradeTooHighException();
-			std::cout << "Oh right, then can you work on this please? Thanks. " << std::endl;
 			f = new Form("LOL420", grade, 10, 0);
-			std::cout  << *f << '\n' << std::endl; // shitty output to fix
+			std::cout << "Oh right, then can you work on this please? Thanks. " << std::endl;
 			avatar->signForm(*f);
+			std::cout  << *f << '\n' << std::endl;
 			if (f->getSignature())
 				avatar->incGrade();
 			break ;
@@ -83,10 +79,6 @@ Bureaucrat	*test_ex00()
 		grade = get_valid_input();
 		try
 		{
-			if (grade > 150)
-				throw Bureaucrat::GradeTooLowException();
-			else if (grade < 1)
-				throw Bureaucrat::GradeTooHighException();
 			avatar = new Bureaucrat(name, grade);
 			std::cout << *avatar << std::endl;
 			break ;
@@ -104,15 +96,11 @@ Bureaucrat	*test_ex00()
 		if (choice == 1)
 		{
 			std::cout << "You request has been denied..." << std::endl;
-			if (avatar->getGrade() + 1 > 150)
-				throw Bureaucrat::GradeTooLowException();
 			avatar->decGrade();
 		}
 		else
 		{
 			std::cout << "Congrats for your extra miles mindset!" << std::endl;
-			if (avatar->getGrade() - 1 < 1)
-				throw Bureaucrat::GradeTooHighException();
 			avatar->incGrade();
 		}
 	}
@@ -131,5 +119,6 @@ int		main()
 	std::cout << "***** Bureaucrat simulator (v0.1) *****\n";
 	avatar = test_ex00();
 	test_ex01(avatar);
+	delete avatar;
 	return (0);
 }
