@@ -6,13 +6,15 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:09:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/15 19:45:41 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/17 17:58:21 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <sstream>
 
 int			get_valid_input()
@@ -37,11 +39,19 @@ int			get_valid_input()
 
 void		test_ex02(Bureaucrat &avatar)
 {
-	ShrubberyCreationForm a("trees");
+	ShrubberyCreationForm 	a("Margaret");
+	RobotomyRequestForm		b("Arnold");
+	PresidentialPardonForm	c("Eren");
 
-	(void)avatar;
 	std::cout << a << std::endl;
-	a.execute(avatar);
+	avatar.signForm(a);
+	avatar.executeForm(a);
+	std::cout << b << std::endl;
+	avatar.signForm(b);
+	avatar.executeForm(b);
+	std::cout << c << std::endl;
+	avatar.signForm(c);
+	avatar.executeForm(c);
 	return ;
 }
 
@@ -69,7 +79,7 @@ Bureaucrat	*test_ex00()
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	std::cout << "You have been working hard for month already, what's next?\n";
+	std::cout << "You have been working hard for 18 months already, what's next?\n";
 	std::cout << "1. Ask your superior for a few days off.\n2. Work more unpaid extra hours.\n-> Your choice (1 or 2): ";
 	choice = get_valid_input();
 	try
@@ -77,15 +87,11 @@ Bureaucrat	*test_ex00()
 		if (choice == 1)
 		{
 			std::cout << "You request has been denied..." << std::endl;
-			if (avatar->getGrade() + 1 > 150)
-				throw Bureaucrat::GradeTooLowException();
 			avatar->decGrade();
 		}
 		else
 		{
-			std::cout << "Congrats for your extra miles mindset!" << std::endl;
-			if (avatar->getGrade() - 1 < 1)
-				throw Bureaucrat::GradeTooHighException();
+			std::cout << "Congrats for your \"extra miles\" mindset!" << std::endl;
 			avatar->incGrade();
 		}
 	}
@@ -103,7 +109,7 @@ int		main()
 
 	std::cout << "***** Bureaucrat simulator (v0.1) *****\n";
 	avatar = test_ex00();
-//	test_ex01(avatar);
 	test_ex02(*avatar);
+	delete avatar;
 	return (0);
 }

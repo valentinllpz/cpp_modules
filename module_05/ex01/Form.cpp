@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 14:25:02 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/17 14:59:18 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:37:26 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ Form::Form() : _name("unset"), _gradeSign(150), _gradeExec(150), _signature(0)
 
 Form::Form(std::string name, int gradeSign, int gradeExec, bool signature) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec), _signature(signature)
 {
+	if (_gradeSign > 150 || _gradeExec > 150)
+		throw Form::GradeTooLowException();
+	if (_gradeSign < 1 || _gradeExec < 1)
+		throw Form::GradeTooHighException();
 	return ;
 }
 

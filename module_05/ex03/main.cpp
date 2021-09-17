@@ -6,12 +6,14 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:09:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/17 17:26:34 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/17 17:45:29 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <sstream>
 
 int			get_valid_input()
@@ -34,35 +36,23 @@ int			get_valid_input()
 	return (nb);
 }
 
-void		test_ex01(Bureaucrat *avatar)
+void		test_ex02(Bureaucrat &avatar)
 {
-	int		grade;
-	Form	*f;
-	
-	std::cout << "Manager: Hey " << avatar->getName() << "! ";
-	while (1)
-	{
-		std::cout << "Do you remember which grade is needed to sign the Form LOL420? ";
-		grade = get_valid_input();
-		try
-		{
-			f = new Form("LOL420", grade, 10, 0);
-			std::cout << "Oh right, then can you work on this please? Thanks. " << std::endl;
-			avatar->signForm(*f);
-			std::cout  << *f << '\n' << std::endl;
-			if (f->getSignature())
-				avatar->incGrade();
-			break ;
-		}
-		catch(std::exception & e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	delete f;
+	ShrubberyCreationForm 	a(avatar.getName());
+	RobotomyRequestForm		b(avatar.getName());
+	PresidentialPardonForm	c(avatar.getName());
+
+	std::cout << a << std::endl;
+	avatar.signForm(a);
+	avatar.executeForm(a);
+	std::cout << b << std::endl;
+	avatar.signForm(b);
+	avatar.executeForm(b);
+	std::cout << c << std::endl;
+	avatar.signForm(c);
+	avatar.executeForm(c);
 	return ;
 }
-
 
 Bureaucrat	*test_ex00()
 {
@@ -118,7 +108,7 @@ int		main()
 
 	std::cout << "***** Bureaucrat simulator (v0.1) *****\n";
 	avatar = test_ex00();
-	test_ex01(avatar);
+	test_ex02(*avatar);
 	delete avatar;
 	return (0);
 }

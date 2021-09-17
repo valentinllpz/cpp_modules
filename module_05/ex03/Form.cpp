@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:41:33 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/17 16:05:37 by vlugand-         ###   ########.fr       */
+/*   Created: 2021/09/09 14:25:02 by vlugand-          #+#    #+#             */
+/*   Updated: 2021/09/17 14:46:44 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 /* ************************************************************************** */
 /*                        CONSTRUCTORS / DESTRUCTORS                          */
 /* ************************************************************************** */
 
-Bureaucrat::Bureaucrat()
+Form::Form() : _name("unset"), _gradeSign(150), _gradeExec(150), _signature(0)
 {
 	return ;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
+Form::Form(std::string name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec), _signature(0)
 {
-	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
 	return ;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src)
+Form::Form(Form const &src) : _name(src.getName()), _gradeSign(src.getGradeSign()), _gradeExec(src.getGradeExec()), _signature(src.getSignature())
 {
-	*this = src;
 	return ;
 }
 
-Bureaucrat::~Bureaucrat()
+Form::~Form()
 {
 	return ;
 }
@@ -45,9 +40,9 @@ Bureaucrat::~Bureaucrat()
 /*                            OPERATORS OVERLOAD                              */
 /* ************************************************************************** */
 
-Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs)
+Form	&Form::operator=(Form const &rhs)
 {
-	this->_grade = rhs.getGrade();
+	this->_signature = rhs.getSignature();
 	return (*this);
 }
 
@@ -55,38 +50,21 @@ Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs)
 /*                             MEMBER FUNCTIONS                               */
 /* ************************************************************************** */
 
-void		Bureaucrat::incGrade()
+Form	&Form::beSigned(Bureaucrat const &x)
 {
-	std::cout << "Increasing " << this->_name << "'s grade..." << std::endl;
-	if (_grade > 1)
-		this->_grade--;
+	if (x.getGrade() > this->_gradeSign)
+		throw Form::GradeTooLowException();
 	else
-		throw Bureaucrat::GradeTooHighException();
-	return ;
+		this->_signature = 1;
+	return (*this);
 }
 
-void		Bureaucrat::decGrade()
+void	Form::canExecute(Bureaucrat &executor) const
 {
-	std::cout << "Decreasing " << this->_name << "'s grade..." << std::endl;
-	if (_grade < 150)
-		this->_grade++;
-	else
-		throw Bureaucrat::GradeTooLowException();
-	return;
-}
-
-void		Bureaucrat::signForm(Form &f)
-{
-	try
-	{
-		f.beSigned(*this);
-		std::cout << this->_name << " signed form " << f.getName() << '.'<< std::endl;
-	}
-	catch(Form::GradeTooLowException & e)
-	{
-		std::cout << this->_name << " is not qualified enough to sign " << f.getName();
-		std::cout << ". Employee's current grade is " << this->_grade << " and grade " << f.getGradeSign() << " or higher is required." << std::endl;
-	}
+	if (!this->_signature)
+		throw Form::FormNotSignedException();
+	else if (executor.getGrade() > this->_gradeExec)
+		throw Form::GradeTooLowException();
 	return ;
 }
 
@@ -94,22 +72,39 @@ void		Bureaucrat::signForm(Form &f)
 /*                             GETTERS / SETTERS                              */
 /* ************************************************************************** */
 
-std::string const		Bureaucrat::getName() const
+std::string const		Form::getName() const
 {
 	return (this->_name);
 }
 
-int		Bureaucrat::getGrade() const
+int		Form::getGradeSign() const
 {
-	return (this->_grade);
+	return (this->_gradeSign);
+}
+
+int		Form::getGradeExec() const
+{
+	return (this->_gradeExec);
+}
+
+bool	Form::getSignature() const
+{
+	return (this->_signature);
 }
 
 /* ************************************************************************** */
 /*                            NON MEMBER OVERLOAD                             */
 /* ************************************************************************** */
 
-std::ostream	&operator<<(std::ostream &o, Bureaucrat const &i)
+std::ostream	&operator<<(std::ostream &o, Form const &i)
 {
-	o << i.getName() << ", bureaucrat grade " << i.getGrade();
+	o << "\n---------- " << i.getName() << " ----------" << std::endl;
+	o << "Minimum grade required to sign: "<< i.getGradeSign() << std::endl;
+	o << "Minimum grade required to excute: " << i.getGradeExec() << std::endl;
+	o << "Current status: ";
+	if (i.getSignature())
+		o << "signed"  << std::endl;
+	else
+		o << "not signed" << std::endl;
 	return (o);
 }

@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:52:49 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/15 14:26:18 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:05:27 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ class Form
 					return ("Form error: grade is too low.");
 				}
 		};
+
 };
 
 std::ostream	&operator<<(std::ostream &o, Form const &i);
