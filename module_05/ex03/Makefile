@@ -6,18 +6,19 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/09/17 16:54:48 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/09/21 15:58:04 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	ex02
+NAME 		=	ex03
 
 SRCS		=	main.cpp\
 				Bureaucrat.cpp\
 				Form.cpp\
 				ShrubberyCreationForm.cpp\
 				RobotomyRequestForm.cpp\
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp\
+				Intern.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
@@ -29,7 +30,7 @@ all:		${NAME}
 
 ${NAME}:	 ${OBJS_PATH} ${OBJS}
 			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-			@echo "\033[0;32m\033[1mex02 is ready !\033[0m"
+			@echo "\033[0;32m\033[1mex03 is ready !\033[0m"
 
 ${OBJS_PATH}:
 			@mkdir -p $@

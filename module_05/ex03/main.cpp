@@ -6,14 +6,12 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:09:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/17 17:45:29 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:04:20 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <sstream>
 
 int			get_valid_input()
@@ -36,21 +34,45 @@ int			get_valid_input()
 	return (nb);
 }
 
-void		test_ex02(Bureaucrat &avatar)
+void		test_ex03(Bureaucrat &avatar)
 {
-	ShrubberyCreationForm 	a(avatar.getName());
-	RobotomyRequestForm		b(avatar.getName());
-	PresidentialPardonForm	c(avatar.getName());
+	Intern		intern;
+	Form	 	*a;
+	Form		*b;
+	Form		*c;
+	Form		*d;
 
-	std::cout << a << std::endl;
-	avatar.signForm(a);
-	avatar.executeForm(a);
-	std::cout << b << std::endl;
-	avatar.signForm(b);
-	avatar.executeForm(b);
-	std::cout << c << std::endl;
-	avatar.signForm(c);
-	avatar.executeForm(c);
+	try
+	{
+		a = intern.makeForm("shrubbery creation", "Robin");
+		std::cout << *a << std::endl;
+		avatar.signForm(*a);
+		avatar.executeForm(*a);
+		delete a;
+		std::cout << "\n\n";
+		b = intern.makeForm("robotomy request", "Bender");
+		std::cout << *b << std::endl;
+		avatar.signForm(*b);
+		avatar.executeForm(*b);
+		std::cout << "\n\n";
+		delete b;
+		c = intern.makeForm("presidential pardon", "Eren");
+		std::cout << *c << std::endl;
+		avatar.signForm(*c);
+		avatar.executeForm(*c);	
+		std::cout << "\n\n";
+		delete c;
+		d = intern.makeForm("rwefuwruyrtjyuiu", "lol");
+		std::cout << *d << std::endl;
+		avatar.signForm(*d);
+		avatar.executeForm(*d);
+		delete d;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	return ;
 }
 
@@ -108,7 +130,7 @@ int		main()
 
 	std::cout << "***** Bureaucrat simulator (v0.1) *****\n";
 	avatar = test_ex00();
-	test_ex02(*avatar);
+	test_ex03(*avatar);
 	delete avatar;
 	return (0);
 }

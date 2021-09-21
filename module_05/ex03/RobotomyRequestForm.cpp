@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 18:30:48 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/17 17:28:13 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:01:38 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		RobotomyRequestForm::execute(Bureaucrat &executor) const
 	this->canExecute(executor);
 	std::srand(time(0));
 	if (rand() % 2)
-		std::cout << "*** Wriiiiiiiiiiiiiiiizzz ***\n" << this->_target << "has been successfully robotomized" << std::endl;
+		std::cout << "*** Wriiiiiiiiiiiiiiiizzz ***\n" << this->_target << " has been successfully robotomized" << std::endl;
 	else
 		std::cout << "Robotomization process for " << this->_target << " has failed..." << std::endl;
 	return ;

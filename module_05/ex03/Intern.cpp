@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 17:47:18 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/17 18:02:34 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:02:59 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Intern::~Intern()
 
 Intern	&Intern::operator=(Intern const &rhs)
 {
+	(void)rhs;
 	return (*this);
 }
 
@@ -45,12 +46,41 @@ Intern	&Intern::operator=(Intern const &rhs)
 /*                             MEMBER FUNCTIONS                               */
 /* ************************************************************************** */
 
-Form	*Intern::makeForm(std::string name, std::string target)
+Form	*Intern::makeForm(std::string name, std::string target) const
 {
+	int			i = 0;
+	Form		*newForm;
 	std::string lst[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-	Form *ptr[3] = {new ShrubberyCreationForm(target), new RobotomyRequestForm(target), new PresidentialPardonForm(target};
-	int		i;
-
+	Form		*(Intern::*fptr[4])(std::string const) const = {&Intern::makeShrubberyCreationForm, 
+																&Intern::makeRobotomyRequestForm,
+																&Intern::makePresidentialPardonForm,
+																&Intern::makeInvalidForm};
 	
-	return (ptr[i]);
+	while (name.compare(lst[i]) && i < 3)
+		i++;
+	newForm = (this->*fptr[i])(target);
+	std::cout << newForm->getName() << " was successfully created by some ramdom Intern." << std::endl;
+	return (newForm);
+}
+
+Form	*Intern::makeShrubberyCreationForm(std::string const target) const
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+Form	*Intern::makeRobotomyRequestForm(std::string const target) const
+{
+	return (new RobotomyRequestForm(target));
+}
+
+Form	*Intern::makePresidentialPardonForm(std::string const target) const
+{
+	return (new PresidentialPardonForm(target));
+}
+
+Form	*Intern::makeInvalidForm(std::string const target) const
+{
+	(void)target;
+	throw MakeFormException();
+	return (NULL);
 }

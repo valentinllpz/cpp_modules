@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:09:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/17 17:58:21 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/21 15:51:52 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int			get_valid_input()
 
 void		test_ex02(Bureaucrat &avatar)
 {
-	ShrubberyCreationForm 	a("Margaret");
-	RobotomyRequestForm		b("Arnold");
+	ShrubberyCreationForm 	a("Robin");
+	RobotomyRequestForm		b("Bender");
 	PresidentialPardonForm	c("Eren");
 
 	std::cout << a << std::endl;
