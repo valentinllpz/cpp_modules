@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 18:22:57 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/15 19:27:11 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:38:35 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 #include "Form.hpp"
+#include <cstdlib>
+#include <ctime>
 
 class RobotomyRequestForm : public Form
 {

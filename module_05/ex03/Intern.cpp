@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 17:47:18 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/21 16:02:59 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:39:39 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Form	*Intern::makeForm(std::string name, std::string target) const
 																&Intern::makePresidentialPardonForm,
 																&Intern::makeInvalidForm};
 	
-	while (name.compare(lst[i]) && i < 3)
+	while (i < 3 && name.compare(lst[i]))
 		i++;
 	newForm = (this->*fptr[i])(target);
 	std::cout << newForm->getName() << " was successfully created by some ramdom Intern." << std::endl;
