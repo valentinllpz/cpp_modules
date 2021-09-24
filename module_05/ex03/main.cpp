@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:09:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/21 16:04:20 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:51:42 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void		test_ex03(Bureaucrat &avatar)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 	return ;
 }
 
