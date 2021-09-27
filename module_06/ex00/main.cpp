@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:29:27 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/24 14:06:52 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/27 18:20:14 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 int		main(int ac, char **av)
 {
-	std::string		input;
-	Convert			*foo;
+	Convert			*multi;
 
 	if (ac != 2)
 	{
 		std::cout << "Error: this program must have one argument." << std::endl;
 		return (1);
 	}
-	input = av[1];
-	foo = new Convert(input);
-	std::cout << *foo << std::endl;
-	delete foo;
+	multi = new Convert(av[1]);
+	multi->convertAll();
+	delete multi;
 	return (0);
 }

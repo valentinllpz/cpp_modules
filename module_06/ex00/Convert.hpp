@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:38:47 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/24 13:55:24 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/27 18:39:07 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ class Convert
 		int				_i;
 		float			_f;
 		double			_d;
+		
+		void	fromChar();
+		void	fromInt();
+		void	fromFloat();
+		void	fromDouble();
 		Convert();
 
 	public:
@@ -31,14 +36,9 @@ class Convert
 		~Convert();
 
 		Convert &operator=(Convert const &rhs);
-
-		std::string	getS() const;
-		char		getC() const;
-		int			getI() const;
-		float		getF() const;
-		double		getD() const;
+		std::string		getS() const;
+		
+		void	convertAll();
 };
-
-std::ostream	&operator<<(std::ostream &o, Convert const &i);
 
 #endif
