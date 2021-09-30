@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:51:26 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/27 19:37:02 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/09/29 12:02:27 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ Convert	&Convert::operator=(Convert const &rhs)
 void	Convert::fromChar()
 {
 	this->_c = this->_s[0];
+	this->_i = static_cast<int>(this->_c); // promotion -> OK
 	if (this->_i < 0 || this->_i > 127)
 		std::cout << "char: impossible" << std::endl;
 	else if (this->_i < 32 || this->_i > 127)
 		std::cout << "char: non displayable" << std::endl;
 	else
 		std::cout << "char: " << this->_c << std::endl;
-	this->_i = static_cast<int>(this->_c); // promotion -> OK
 	this->_f = static_cast<float>(this->_c); // promotion -> OK
 	this->_d = static_cast<double>(this->_c); // promotion -> OK
 	std::cout << "int: " << this->_i << std::endl;
@@ -138,12 +138,12 @@ void	Convert::fromDouble()
 	}
 	if (this->_s == "+inf" || this->_s == "inf" || this->_s == "-inf" ||this->_s == "nan")
 		std::cout << "float: " << this->_d << 'f' << std::endl;
-	else if (this->_d > __FLT_MIN__ || this->_d < __FLT_MAX__)
+	else if (this->_d < __FLT_MIN__ || this->_d > __FLT_MAX__)
 		std::cout << "float: impossible" << std::endl;
 	else
 	{
 		this->_f = static_cast<float>(this->_d); // demotion but value checked previously
-		std::cout << "float: " << this->_f <<'f' << std::endl;
+		std::cout << "float: " << this->_f << 'f' << std::endl;
 	}
 	std::cout << "double: " << this->_d << std::endl;
 	return ;

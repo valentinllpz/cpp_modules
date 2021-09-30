@@ -14,7 +14,7 @@
 
 bool	isChar(std::string input)
 {
-	if (!(input.length() == 1 && !isnumber(input[0]) && input[0] >= 0 && input[0] <= 127))
+	if (!(input.length() == 1 && !isdigit(input[0]) && input[0] >= 0 && input[0] <= 127))
 		return (false);
 	std::cout << "original type: char" << std::endl;
 	return (true);
@@ -24,6 +24,7 @@ bool	isInt(std::string input)
 {
 	int		i;
 
+	
 	std::string::const_iterator it = input.begin();
 	if (*it == '-')
 		++it;
@@ -46,17 +47,38 @@ bool	isInt(std::string input)
 bool	isDouble(std::string input)
 {
 	double	d;
+	bool	flag = 0;
 	
-	try
+	if (input == "inf" || input == "+inf" || input == "-inf" || input == "nan")
 	{
-		d = std::stod(input);
+		std::cout << "original type: double" << std::endl;
+		return (true);
 	}
-	catch(const std::exception& e)
+	std::string::const_iterator it = input.begin();
+	if (*it == '-')
+		++it;
+    while (it != input.end())
 	{
-		return (false);
+		if (*it == '.' && !flag)
+			flag = 1;
+		else if (!std::isdigit(*it))
+			break ;
+		++it;
 	}
-	std::cout << "original type: double" << std::endl;
-	return (true);
+	if (it == input.end())
+	{
+		try
+		{
+			d = std::stod(input);
+		}
+		catch(const std::exception& e)
+		{
+			return (false);
+		}
+		std::cout << "original type: double" << std::endl;
+		return (true);
+	}
+	return (false);
 }
 
 bool	isFloat(std::string input)
@@ -98,24 +120,4 @@ bool	isFloat(std::string input)
 		}
 	}
 	return (false);
-}
-
-void	customFloatDisplay(std::string s, float f)
-{
-	if (s == "+inff" || s == "inff" || s == "-inff" ||s == "nanf")
-	{
-		std::cout << "float: " << f << 'f' << std::endl;
-		return ;
-	}
-	std::cout << "float: " << f;
-	std::string::const_iterator it = s.end();
-	it--;
-	if (*it == '0')
-	{
-		it--;
-		if (*it != '.')
-			std::cout << ".0";
-	}
-	std::cout << 'f' << std::endl;
-	return ;
 }

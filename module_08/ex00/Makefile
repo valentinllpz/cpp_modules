@@ -6,14 +6,13 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/09/29 14:21:27 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/09/30 19:31:41 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	ex00
 
-SRCS		=	main.cpp\
-				Data.cpp
+SRCS		=	main.cpp
 
 CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
@@ -23,7 +22,7 @@ OBJS		= 	${addprefix ${OBJS_PATH}, ${SRCS:.cpp=.o}}
 
 all:		${NAME}
 
-${NAME}:	 ${OBJS_PATH} ${OBJS}
+${NAME}:	${OBJS_PATH} ${OBJS}
 			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 			@echo "\033[0;32m\033[1mex00 is ready !\033[0m"
 

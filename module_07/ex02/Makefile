@@ -6,7 +6,7 @@
 #    By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 17:58:20 by vlugand-          #+#    #+#              #
-#    Updated: 2021/09/29 15:17:26 by vlugand-         ###   ########.fr        #
+#    Updated: 2021/09/30 21:07:57 by vlugand-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME 		=	ex02
 SRCS		=	main.cpp
 
 CC			= 	clang++
-CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 OBJS_PATH	= 	./.objs/
 OBJS		= 	${addprefix ${OBJS_PATH}, ${SRCS:.cpp=.o}}
