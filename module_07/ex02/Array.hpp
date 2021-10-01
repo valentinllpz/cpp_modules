@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 15:18:59 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/30 22:05:53 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/10/01 16:08:16 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,10 @@ class Array
 		{
 			if (this->_array)
 				delete [] this->_array;
-			if (rhs.getN() > 0)
-			{
-				this->_array = new T[rhs.getN()];
-				for (unsigned int i = 0; i < rhs.getN(); i++)
-					this->_array[i] = rhs.getArray()[i];
-			}
 			this->_n = rhs.getN();
+			this->_array = new T[_n];
+			for (unsigned int i = 0; i < _n; i++)
+				this->_array[i] = rhs.getArray()[i];
 			return (*this);
 		}
 

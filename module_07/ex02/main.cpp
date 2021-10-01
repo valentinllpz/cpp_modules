@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 15:18:07 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/09/30 22:05:17 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/10/01 12:14:52 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int main()
 
 
 /*
+#include <cstdlib>
+
 #define MAX_VAL 750
 int main(int, char**)
 {
