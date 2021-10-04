@@ -6,12 +6,12 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 15:41:50 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/10/01 18:52:06 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:25:54 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <cstdlib>
+
 #define MAX_VAL 42000
 
 int main()

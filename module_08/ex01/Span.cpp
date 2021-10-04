@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 15:46:08 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/10/01 18:47:33 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:29:45 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ unsigned int	Span::shortestSpan() const
 
 	if (this->v.size() < 2)
 		throw ImpossibleSpanException();
-	res = abs(this->v[0] - this->v[1]);
+	res = std::abs(this->v[0] - this->v[1]);
 	for (unsigned int i = 2; i < this->v.size(); ++i)
 	{
-		tmp = abs(this->v[i] - this->v[i - 1]);
+		tmp = std::abs(this->v[i] - this->v[i - 1]);
 		if (tmp < res)
-			res = abs(this->v[i] - this->v[i - 1]);
+			res = std::abs(this->v[i] - this->v[i - 1]);
 	}
 	return (res);
 }
@@ -93,9 +93,9 @@ unsigned int	Span::longestSpan() const
 		throw ImpossibleSpanException();
 	for (unsigned int i = 1; i < this->v.size(); ++i)
 	{	
-		tmp = abs(this->v[i] - this->v[i - 1]);
+		tmp = std::abs(this->v[i] - this->v[i - 1]);
 		if (tmp > res)
-			res = abs(this->v[i] - this->v[i - 1]);
+			res = std::abs(this->v[i] - this->v[i - 1]);
 	}
 	return (res);
 }

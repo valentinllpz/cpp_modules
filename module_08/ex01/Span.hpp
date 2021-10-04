@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 15:43:11 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/10/01 18:38:28 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:25:57 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 class Span
 {
