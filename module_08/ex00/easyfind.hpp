@@ -6,7 +6,7 @@
 /*   By: vlugand- <vlugand-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:32:23 by vlugand-          #+#    #+#             */
-/*   Updated: 2021/10/01 15:26:09 by vlugand-         ###   ########.fr       */
+/*   Updated: 2021/10/04 12:31:55 by vlugand-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <algorithm>
-#include <array>
 #include <vector>
 #include <list>
 
